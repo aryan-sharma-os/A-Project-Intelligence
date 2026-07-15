@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000/api/v1/research';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1') + '/research';
 
 export const useResearchStore = create((set, get) => ({
   sessionId: null,

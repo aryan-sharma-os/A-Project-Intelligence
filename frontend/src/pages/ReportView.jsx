@@ -162,7 +162,7 @@ const ReportView = () => {
 
     if (fromHistory) {
       // Load from DB instead of streaming
-      fetch(`http://localhost:8000/api/v1/research/${id}`)
+      fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1'}/research/${id}`)
         .then(res => res.json())
         .then(data => {
           if (data.status === 'success' && data.data) {
@@ -180,7 +180,7 @@ const ReportView = () => {
 
     if (!ticker) return;
     
-    const url = `http://localhost:8000/api/v1/research/${id}/stream?ticker=${ticker}`;
+    const url = `${import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1'}/research/${id}/stream?ticker=${ticker}`;
     const es = new EventSource(url);
     eventSourceRef.current = es;
 

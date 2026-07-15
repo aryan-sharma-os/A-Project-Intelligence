@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useResearchStore } from '../store/researchStore';
 import { Loader2, CheckCircle2, CircleDashed } from 'lucide-react';
 
-const API_BASE_URL = 'http://localhost:8000/api/research';
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1') + '/research';
 
 export const AgentTrace = () => {
   const { sessionId, status, processEvent, events } = useResearchStore();

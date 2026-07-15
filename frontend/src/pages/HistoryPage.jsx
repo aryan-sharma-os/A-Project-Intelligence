@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useWatchlistStore } from '../store/uiStore';
 
-const API_BASE = 'http://localhost:8000/api/v1/research';
+const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1') + '/research';
 
 const HistoryPage = () => {
   const [history, setHistory] = useState([]);

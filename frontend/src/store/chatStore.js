@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 
-const API_BASE = 'http://localhost:8000/api/v1/research';
+const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1') + '/research';
 
 export const useChatStore = create((set, get) => ({
   messages: [],

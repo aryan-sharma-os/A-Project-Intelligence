@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { GitCompare, Plus, X, TrendingUp, TrendingDown, Minus, Trophy, Loader2 } from 'lucide-react';
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:8000/api/v1/research';
+const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1') + '/research';
 
 const POPULAR = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'NVDA', 'TSLA', 'META'];
 

@@ -48,7 +48,7 @@ const ChatSidebar = ({ data }) => {
         .filter((m, i) => i > 0) // skip the initial greeting
         .map(m => ({ role: m.role, content: m.content }));
 
-      const response = await fetch(`http://localhost:8000/api/v1/research/${sessionId}/chat`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || (import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1') + ''}/research/${sessionId}/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ messages: chatHistory })
